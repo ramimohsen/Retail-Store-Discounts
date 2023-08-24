@@ -72,6 +72,37 @@ To run the project locally and see the discount calculation in action, follow th
 Once the project is up and running, you can access the retail website and explore how discounts are applied during the
 checkout process. Refer to the [Swagger documentation](http://localhost:8080/swagger-ui/index.html#/) for API details.
 
+**Authentication:**
+
+- The service is secured with JWT (JSON Web Token) authentication.
+- To access the protected endpoints, you need to log in first.
+- After successful login, you will receive a JWT token.
+- Include this JWT token in the `Authorization` header of subsequent requests as a bearer token to authenticate
+  yourself.
+
+**Default Users:**
+
+When the application is running, three default users are added to the system:
+
+1. **User 1**
+    - Email: ramimohsen20@gmail.com
+    - Password: admin123
+    - Roles: ROLE_EMPLOYEE, ROLE_AFFILIATE
+
+2. **User 2**
+    - Email: ramimohsen30@gmail.com
+    - Password: admin123
+    - Roles: ROLE_AFFILIATE
+
+3. **User 3**
+    - Email: ramimohsen40@gmail.com
+    - Password: admin123
+    - Roles: ROLE_CUSTOMER
+
+These default users are provided for testing and demonstration purposes.
+
+Please ensure you generate and use the JWT token for authorized access to the service.
+
 ## Contributing
 
 We welcome contributions to improve and expand the Retail Store Discounts project. To contribute, follow these
@@ -85,7 +116,7 @@ guidelines:
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License]().
 
 ## Acknowledgments
 
