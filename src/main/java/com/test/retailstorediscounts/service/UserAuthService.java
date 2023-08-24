@@ -17,7 +17,7 @@ public interface UserAuthService {
 
     /**
      * @param userLoginRequest user login request dto
-     * @return @{@link JwtResponse} JWT if successful authentication occurred and @{@link javax.security.sasl.AuthenticationException} if incorrect email or password provided
+     * @return @{@link JwtResponse} JWT if successful authentication occurred
      */
     JwtResponse authenticate(UserLoginRequest userLoginRequest);
 }

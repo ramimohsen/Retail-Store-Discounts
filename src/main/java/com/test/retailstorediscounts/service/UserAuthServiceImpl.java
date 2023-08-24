@@ -67,7 +67,6 @@ public class UserAuthServiceImpl implements UserAuthService {
 
     @Override
     public JwtResponse authenticate(UserLoginRequest userLoginRequest) {
-
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(userLoginRequest.getEmail(), userLoginRequest.getPassword()));
 
