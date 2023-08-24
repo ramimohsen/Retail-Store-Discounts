@@ -103,6 +103,47 @@ These default users are provided for testing and demonstration purposes.
 
 Please ensure you generate and use the JWT token for authorized access to the service.
 
+## Default Discount Rules
+
+When the application is running, a set of default discount rules is available for use. These rules are designed to
+provide discounts to different user profiles based on specific criteria. Here are the default discount rules:
+
+**Employee Discount**
+
+- Description: Employee discount rule
+- Discount Percentage: 30%
+- Active: Yes
+
+**Affiliate Discount**
+
+- Description: Affiliate discount rule
+- Discount Percentage: 10%
+- Active: Yes
+
+**Customer Loyalty Discount**
+
+- Description: Customer for over 2 years discount rule
+- Discount Percentage: 5%
+- Active: Yes
+
+**Bill Amount Discount**
+
+- Description: For every $100 on the bill, there would be a $5 discount (e.g., for $990, you get $45 as a discount)
+- Discount Percentage: 5%
+- Active: Yes
+
+These default discount rules are automatically applied based on user profiles and purchase amounts when using the
+application. You can also extend or customize these rules as needed to meet specific business requirements.
+
+For more details on how these rules are applied and the application's features, please refer to the [Usage](#usage)
+section in this README.
+
+If you want to add, modify, or deactivate discount rules, you can do so through the application's administrative
+interface or by directly updating the database.
+
+Please note that the default rules provided here are for demonstration purposes, and you can tailor them to match your
+specific business logic.
+
 ## Contributing
 
 We welcome contributions to improve and expand the Retail Store Discounts project. To contribute, follow these
