@@ -1,4 +1,4 @@
-package com.test.retailstorediscounts.dto;
+package com.test.retailstorediscounts.dto.response;
 
 
 import lombok.AllArgsConstructor;

@@ -1,9 +1,9 @@
 package com.test.retailstorediscounts.service;
 
-import com.test.retailstorediscounts.dto.JwtResponse;
-import com.test.retailstorediscounts.dto.UserLoginRequest;
-import com.test.retailstorediscounts.dto.UserSignUpRequest;
-import com.test.retailstorediscounts.dto.UserSignUpResponse;
+import com.test.retailstorediscounts.dto.request.UserLoginRequest;
+import com.test.retailstorediscounts.dto.request.UserSignUpRequest;
+import com.test.retailstorediscounts.dto.response.JwtResponse;
+import com.test.retailstorediscounts.dto.response.UserSignUpResponse;
 import com.test.retailstorediscounts.entity.Role;
 import com.test.retailstorediscounts.entity.User;
 import com.test.retailstorediscounts.enums.UserRole;

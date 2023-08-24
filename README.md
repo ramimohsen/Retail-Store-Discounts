@@ -85,17 +85,17 @@ checkout process. Refer to the [Swagger documentation](http://localhost:8080/swa
 When the application is running, three default users are added to the system:
 
 1. **User 1**
-    - Email: ramimohsen20@gmail.com
+    - Email: test1@gmail.com
     - Password: admin123
     - Roles: ROLE_EMPLOYEE, ROLE_AFFILIATE
 
 2. **User 2**
-    - Email: ramimohsen30@gmail.com
+    - Email: test2@gmail.com
     - Password: admin123
     - Roles: ROLE_AFFILIATE
 
 3. **User 3**
-    - Email: ramimohsen40@gmail.com
+    - Email: test3@gmail.com
     - Password: admin123
     - Roles: ROLE_CUSTOMER
 

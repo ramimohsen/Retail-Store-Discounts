@@ -1,6 +1,7 @@
 package com.test.retailstorediscounts.config;
 
 
+import com.test.retailstorediscounts.service.security.AuthEntryPointJwt;
 import com.test.retailstorediscounts.service.security.AuthTokenFilter;
 import com.test.retailstorediscounts.service.security.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
@@ -26,9 +27,13 @@ public class WebSecurityConfig {
 
     private final UserDetailsServiceImpl userDetailsService;
 
+
+    private final AuthEntryPointJwt unauthorizedHandler;
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
+                .exceptionHandling(e -> e.authenticationEntryPoint(unauthorizedHandler))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/api/user/auth/**",
                                 "/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**", "/webjars/**").permitAll()
