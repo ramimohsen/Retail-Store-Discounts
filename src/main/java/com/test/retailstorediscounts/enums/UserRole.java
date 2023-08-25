@@ -7,5 +7,9 @@ import lombok.Getter;
 public enum UserRole {
     ROLE_EMPLOYEE,
     ROLE_AFFILIATE,
-    ROLE_CUSTOMER
+    ROLE_CUSTOMER;
+
+    public String cleanRolePrefix() {
+        return this.toString().replaceFirst("^ROLE_", "");
+    }
 }

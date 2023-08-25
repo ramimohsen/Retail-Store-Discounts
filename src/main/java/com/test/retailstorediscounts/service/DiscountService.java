@@ -11,6 +11,11 @@ public interface DiscountService {
 
     CalculateNetPayableResponse calculate(CalculateNetPayableRequest calculateNetPayableRequest, UserDetails userDetails);
 
+
+    /**
+     * @param userDetails auth user details
+     * @return @{@link List<DiscountRuleResponse>} List of users applicable rules
+     */
     List<DiscountRuleResponse> getEligibleRules(UserDetails userDetails);
 
 }

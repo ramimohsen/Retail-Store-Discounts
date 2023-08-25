@@ -103,7 +103,7 @@ These default users are provided for testing and demonstration purposes.
 
 Please ensure you generate and use the JWT token for authorized access to the service.
 
-## Default Discount Rules
+**Default Discount Rules:**
 
 When the application is running, a set of default discount rules is available for use. These rules are designed to
 provide discounts to different user profiles based on specific criteria. Here are the default discount rules:

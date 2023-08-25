@@ -31,9 +31,7 @@ import java.util.*;
 
 import static org.mockito.Mockito.*;
 
-@SpringBootTest(properties = {
-        "spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration"
-})
+@SpringBootTest
 class UserAuthServiceImplTest {
 
     @Autowired
