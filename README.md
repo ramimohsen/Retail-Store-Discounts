@@ -144,6 +144,95 @@ interface or by directly updating the database.
 Please note that the default rules provided here are for demonstration purposes, and you can tailor them to match your
 specific business logic.
 
+**Example API Testing**
+
+You can test the API as follows:
+
+1. Make a POST request to `http://localhost:8080/api/discount/calculate` with the provided request payload.
+
+2. Inspect the response to ensure it matches the expected format and values.
+
+**Request:**
+
+```http
+POST http://localhost:8080/api/discount/calculate
+Content-Type: application/json
+
+{
+    "items": [
+        {
+            "name": "string",
+            "price": 500,
+            "category": "ELECTRONICS"
+        },
+        {
+            "name": "string",
+            "price": 500,
+            "category": "CLOTHS"
+        },
+        {
+            "name": "string",
+            "price": 500,
+            "category": "GROCERY"
+        }
+    ],
+    "percentageRuleId": "64e94bb41ecaed6a3b12a4ce"
+}
+```
+
+**Response:**
+
+```http
+{
+    "originalBillAmount": 1500.0,
+    "netPayableAmount": 1140.0,
+    "rulesApplied": [
+        {
+            "id": "64e94bb41ecaed6a3b12a4ce",
+            "name": "EMPLOYEE",
+            "description": "Employee discount rule gives you 30% discount",
+            "discountPercentage": 30.0,
+            "discountAmount": null,
+            "threshold": null
+        },
+        {
+            "id": "64e94bb41ecaed6a3b12a4d1",
+            "name": "BILL100",
+            "description": "For every $100 on the bill, there would be a $ 5 discount (e.g. for $ 990, you get $ 45 as\na discount)",
+            "discountPercentage": 0.0,
+            "discountAmount": 5.0,
+            "threshold": 100.0
+        }
+    ],
+    "itemsDiscountDetails": [
+        {
+            "finalPrice": 350.0,
+            "discountApplied": 150.0,
+            "originalPrice": 500.0,
+            "itemName": "string"
+        },
+        {
+            "finalPrice": 350.0,
+            "discountApplied": 150.0,
+            "originalPrice": 500.0,
+            "itemName": "string"
+        },
+        {
+            "finalPrice": 500.0,
+            "discountApplied": 0.0,
+            "originalPrice": 500.0,
+            "itemName": "string"
+        }
+    ],
+    "discountOnTotalAmountDetails": {
+        "finalPrice": 1140.0,
+        "discountApplied": 60.0,
+        "originalPrice": 1200.0,
+        "itemName": "TOTAL_BILL_DISCOUNT_AMOUNT"
+    }
+}
+```
+
 ## Contributing
 
 We welcome contributions to improve and expand the Retail Store Discounts project. To contribute, follow these
