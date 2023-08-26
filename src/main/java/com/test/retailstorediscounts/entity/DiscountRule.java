@@ -25,5 +25,11 @@ public class DiscountRule {
     @Field("discount_parentage")
     private Double discountPercentage;
 
+    @Field("discount_amount")
+    private Double discountAmount;
+
+    @Field("threshold")
+    private Double threshold;
+
     private Boolean active;
 }

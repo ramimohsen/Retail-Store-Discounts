@@ -1,5 +1,11 @@
 package com.test.retailstorediscounts.exception;
 
+import com.test.retailstorediscounts.exception.custom.RuleEligibleException;
+import com.test.retailstorediscounts.exception.custom.RuleNotFoundException;
+import com.test.retailstorediscounts.exception.custom.UserAlreadyExistException;
+import com.test.retailstorediscounts.exception.response.ErrorDetails;
+import com.test.retailstorediscounts.exception.response.ValidationFailedResponse;
+import com.test.retailstorediscounts.exception.response.ViolationErrors;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
@@ -20,6 +26,18 @@ public class RetailStoreDiscountsExceptionHandler {
     public ResponseEntity<Object> userAlreadyExistExceptionHandling(UserAlreadyExistException exception, WebRequest request) {
         return new ResponseEntity<>(new ErrorDetails(LocalDateTime.now(), exception.getMessage(),
                 request.getDescription(false), HttpStatus.BAD_REQUEST), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(RuleEligibleException.class)
+    public ResponseEntity<Object> ruleEligibleExceptionHandling(RuleEligibleException exception, WebRequest request) {
+        return new ResponseEntity<>(new ErrorDetails(LocalDateTime.now(), exception.getMessage(),
+                request.getDescription(false), HttpStatus.BAD_REQUEST), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(RuleNotFoundException.class)
+    public ResponseEntity<Object> ruleNotFoundExceptionHandling(RuleNotFoundException exception, WebRequest request) {
+        return new ResponseEntity<>(new ErrorDetails(LocalDateTime.now(), exception.getMessage(),
+                request.getDescription(false), HttpStatus.NOT_FOUND), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(AuthenticationException.class)

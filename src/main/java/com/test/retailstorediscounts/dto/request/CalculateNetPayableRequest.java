@@ -14,4 +14,6 @@ public class CalculateNetPayableRequest {
 
     @NotEmpty
     private List<Item> items;
+
+    private String percentageRuleId;
 }

@@ -44,30 +44,32 @@ db.users.insert({
 
 db.discount_rules.insert({
     name: 'EMPLOYEE',
-    description: 'Employee discount rule',
+    description: 'Employee discount rule gives you 30% discount',
     discount_parentage: 30,
     active: true
 });
 
 db.discount_rules.insert({
     name: 'AFFILIATE',
-    description: 'Affiliate discount rule',
+    description: 'Affiliate discount rule gives you 10% discount',
     discount_parentage: 10,
     active: true
 });
 
 db.discount_rules.insert({
     name: 'CUSTOMER',
-    description: 'Customer for over 2 years discount rule',
+    description: 'Customer for over 2 years discount rule gives you 5% discount',
     discount_parentage: 5,
     active: true
 });
 
 db.discount_rules.insert({
-    name: 'Bill100',
+    name: 'BILL100',
     description: 'For every $100 on the bill, there would be a $ 5 discount (e.g. for $ 990, you get $ 45 as\n' +
         'a discount)',
-    discount_parentage: 5,
+    discount_parentage: 0,
+    discount_amount: 5,
+    threshold: 100,
     active: true
 });
 

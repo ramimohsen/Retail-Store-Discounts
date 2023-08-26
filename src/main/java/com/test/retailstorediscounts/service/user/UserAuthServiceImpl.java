@@ -1,4 +1,4 @@
-package com.test.retailstorediscounts.service;
+package com.test.retailstorediscounts.service.user;
 
 import com.test.retailstorediscounts.dto.request.UserLoginRequest;
 import com.test.retailstorediscounts.dto.request.UserSignUpRequest;
@@ -7,7 +7,7 @@ import com.test.retailstorediscounts.dto.response.UserSignUpResponse;
 import com.test.retailstorediscounts.entity.Role;
 import com.test.retailstorediscounts.entity.User;
 import com.test.retailstorediscounts.enums.UserRole;
-import com.test.retailstorediscounts.exception.UserAlreadyExistException;
+import com.test.retailstorediscounts.exception.custom.UserAlreadyExistException;
 import com.test.retailstorediscounts.repository.RoleRepository;
 import com.test.retailstorediscounts.repository.UserRepository;
 import com.test.retailstorediscounts.service.security.JwtUtils;

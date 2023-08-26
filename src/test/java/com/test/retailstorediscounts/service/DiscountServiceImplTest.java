@@ -3,8 +3,11 @@ package com.test.retailstorediscounts.service;
 import com.test.retailstorediscounts.dto.response.DiscountRuleResponse;
 import com.test.retailstorediscounts.entity.DiscountRule;
 import com.test.retailstorediscounts.enums.UserRole;
+import com.test.retailstorediscounts.exception.custom.RuleNotFoundException;
 import com.test.retailstorediscounts.repository.DiscountRuleRepository;
 import com.test.retailstorediscounts.repository.UserRepository;
+import com.test.retailstorediscounts.service.discount.DiscountService;
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,8 +18,9 @@ import org.springframework.security.core.userdetails.User;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 
@@ -77,5 +81,49 @@ class DiscountServiceImplTest {
                 .existsUserByEmailAndRegistrationDateBefore("testUser", LocalDateTime.now()
                         .minusYears(2)
                         .truncatedTo(ChronoUnit.SECONDS));
+    }
+
+    @Test
+    public void testGetAllRules() {
+
+        List<DiscountRule> sampleRules = List.of(
+                DiscountRule.builder()
+                        .name("CUSTOMER").id("1").build(),
+                DiscountRule.builder()
+                        .name("EMPLOYEE").id("2").build(),
+                DiscountRule.builder()
+                        .name("Bill100").id("3").build());
+
+        when(discountRuleRepository.findAll()).thenReturn(sampleRules);
+
+        List<DiscountRuleResponse> ruleResponses = discountRuleService.getAllRules();
+
+        assertEquals(sampleRules.size(), ruleResponses.size());
+    }
+
+    @SneakyThrows
+    @Test
+    public void testGetRuleById_WhenRuleExists_ShouldReturnRuleResponse() {
+        String ruleId = "64e86e443f3c9e18852e3350";
+        DiscountRule expectedRule = DiscountRule.builder().name("EMPLOYEE").id(ruleId)
+                .discountPercentage(30.0).build();
+
+        when(discountRuleRepository.findById(ruleId)).thenReturn(Optional.of(expectedRule));
+
+        DiscountRuleResponse ruleResponse = discountRuleService.getRuleById(ruleId);
+
+        assertNotNull(ruleResponse);
+        assertEquals(ruleId, ruleResponse.getId());
+        assertEquals("EMPLOYEE", ruleResponse.getName());
+        assertEquals(30, ruleResponse.getDiscountPercentage());
+    }
+
+    @Test
+    public void testGetRuleById_WhenRuleDoesNotExist_ShouldThrowException() {
+        String nonExistentRuleId = "nonexistent-rule-id";
+
+        when(discountRuleRepository.findById(nonExistentRuleId)).thenReturn(Optional.empty());
+
+        assertThrows(RuleNotFoundException.class, () -> discountRuleService.getRuleById(nonExistentRuleId));
     }
 }

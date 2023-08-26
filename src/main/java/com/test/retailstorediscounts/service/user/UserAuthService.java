@@ -1,10 +1,10 @@
-package com.test.retailstorediscounts.service;
+package com.test.retailstorediscounts.service.user;
 
 import com.test.retailstorediscounts.dto.request.UserLoginRequest;
 import com.test.retailstorediscounts.dto.request.UserSignUpRequest;
 import com.test.retailstorediscounts.dto.response.JwtResponse;
 import com.test.retailstorediscounts.dto.response.UserSignUpResponse;
-import com.test.retailstorediscounts.exception.UserAlreadyExistException;
+import com.test.retailstorediscounts.exception.custom.UserAlreadyExistException;
 
 public interface UserAuthService {
 

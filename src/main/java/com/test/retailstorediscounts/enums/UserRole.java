@@ -7,6 +7,7 @@ import lombok.Getter;
 public enum UserRole {
     ROLE_EMPLOYEE,
     ROLE_AFFILIATE,
+    ROLE_ADMIN,
     ROLE_CUSTOMER;
 
     public String cleanRolePrefix() {

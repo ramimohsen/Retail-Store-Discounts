@@ -15,4 +15,7 @@ public class DiscountRuleResponse {
 
     private Double discountPercentage;
 
+    private Double discountAmount;
+
+    private Double threshold;
 }

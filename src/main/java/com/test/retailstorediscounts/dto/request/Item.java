@@ -14,7 +14,7 @@ public class Item {
     @NotNull
     private String name;
     @NotNull
-    private double price;
+    private Double price;
     @NotNull
     private Category category;
 

@@ -1,4 +1,4 @@
-package com.test.retailstorediscounts.exception;
+package com.test.retailstorediscounts.exception.response;
 
 
 import lombok.Builder;

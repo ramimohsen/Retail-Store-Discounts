@@ -1,4 +1,4 @@
-package com.test.retailstorediscounts.exception;
+package com.test.retailstorediscounts.exception.custom;
 
 public class UserAlreadyExistException extends Exception {
     public UserAlreadyExistException(String message) {
