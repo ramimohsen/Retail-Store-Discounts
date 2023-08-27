@@ -64,8 +64,9 @@ To run the project locally and see the discount calculation in action, follow th
 ### Installation
 
 1. Clone the repository: `git clone https://github.com/ramimohsen/Retail-Store-Discounts.git`
-2. Build the project: `mvn clean install`
-3. Run the project: `java -jar target/retail-store-discounts.jar`
+2. Change directory to the project folder: `cd Retail-Store-Discounts`
+3. Build the project: `mvn clean package -DskipTests `
+4. Create and start the Docker containers using Docker Compose: `docker-compose up`
 
 ## Usage
 
